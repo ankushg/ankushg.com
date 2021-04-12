@@ -35,6 +35,7 @@ permalink: "/posts/:title/"
 timezone: America/Los_Angeles
 include:
 - _pages
+- _redirects
 exclude:
 - Gemfile
 - Gemfile.lock
