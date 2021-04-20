@@ -2,7 +2,7 @@
 title: Ankush Gupta
 layout: splash
 permalink: "/"
-excerpt: I'm a Staff Software Engineer at [Quizlet](https://quizlet.com).<br/><br/>I
+excerpt: I'm a Software Engineer at [Quizlet](https://quizlet.com).<br/><br/>I
   currently focus delivering awesome experiences with Android and Kotlin Multiplatform
   -- both for our users and my fellow engineers.
 header:
