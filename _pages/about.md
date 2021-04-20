@@ -3,7 +3,7 @@ permalink: "/about/"
 title: About Me
 
 ---
-I’m a Staff Software Engineer at Quizlet.
+I’m a Software Engineer at Quizlet.
 
 I primarily focus on delivering awesome experiences with Android and Kotlin Multiplatform -- both for our users and my fellow engineers.
 
