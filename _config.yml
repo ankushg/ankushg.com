@@ -107,11 +107,10 @@ defaults:
     layout: single
     author_profile: true
 - scope:
-    path: _projects
-    type: projects
+    path: "projects"
   values:
     layout: single
-    author_profile: true
+    permalink: "/projects/:title/"
 - scope:
     path: _speaking
     type: speaking
@@ -124,10 +123,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: "/tags/"
-collections:
-  projects:
-    output: true
-    permalink: "/:collection/:path/"
   speaking:
     output: true
     permalink: "/:collection/:path/"
