@@ -101,8 +101,6 @@ defaults:
     share: true
     related: true
 - scope:
-    path: _pages
-    type: pages
     path: "speaking"
   values:
     layout: single
@@ -113,9 +111,12 @@ defaults:
     layout: single
     permalink: "/projects/:title/"
 - scope:
+    path: "_pages"
+    type: "pages"
   values:
     layout: single
     author_profile: true
+    permalink: "/:basename"
 category_archive:
   type: liquid
   path: "/categories/"
