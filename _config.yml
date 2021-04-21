@@ -103,17 +103,16 @@ defaults:
 - scope:
     path: _pages
     type: pages
+    path: "speaking"
   values:
     layout: single
-    author_profile: true
+    permalink: "/speaking/:title/"
 - scope:
     path: "projects"
   values:
     layout: single
     permalink: "/projects/:title/"
 - scope:
-    path: _speaking
-    type: speaking
   values:
     layout: single
     author_profile: true
@@ -123,6 +122,3 @@ category_archive:
 tag_archive:
   type: liquid
   path: "/tags/"
-  speaking:
-    output: true
-    permalink: "/:collection/:path/"

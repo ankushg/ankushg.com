@@ -1,7 +1,8 @@
 ---
 title: A Journey in Shared Code with Kotlin Multiplatform
 date: 2019-07-03
-categories: speaking
+categories: 
+  - speaking
 feature: true
 tags:
   - android

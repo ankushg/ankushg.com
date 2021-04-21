@@ -2,7 +2,8 @@
 title: Principles of Shared Code
 date: 2019-09-17
 feature: true
-categories: speaking
+categories: 
+  - speaking
 tags:
   - android
   - kotlin
