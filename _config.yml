@@ -87,10 +87,14 @@ footer:
     url: https://www.linkedin.com/in/ankushmg/
 defaults:
 - scope:
-    path: ''
-    type: posts
+    path: ""
   values:
     layout: single
+- scope:
+    path: "posts"
+  values:
+    layout: single
+    permalink: "/posts/:title/"
     author_profile: true
     read_time: false
     comments: true

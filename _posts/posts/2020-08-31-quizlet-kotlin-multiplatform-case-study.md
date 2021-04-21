@@ -1,7 +1,9 @@
 ---
 title: "Quizlet + Kotlin Multiplatform Case Study"
 link: https://kotlinlang.org/lp/mobile/case-studies/quizlet/
-categories: industry
+categories: 
+  - publications
+  - posts
 feature: true
 tags:
   - kotlin
