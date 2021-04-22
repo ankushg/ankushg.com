@@ -2,7 +2,7 @@
 title: "Denver Startup Week 2019: Principles of Shared Code"
 date: 2019-09-17
 feature: true
-categories: 
+categories:
   - speaking
 tags:
   - android
@@ -10,13 +10,14 @@ tags:
   - kotlin multiplatform
   - kmp
   - kmm
-excerpt: "Denver Startup Week 2019: Sept. 17, 2019. <br>Free community event!"
+excerpt: "Denver Startup Week 2019.  <br>Free community event!"
 header:
   teaser: /assets/images/dsw_2019.png
   overlay_color: "#333"
   actions:
     - label: "See more"
       url: "https://www.denverstartupweek.org/schedule/5959-a-journey-in-shared-code-with-kotlin-multiplatform"
+permalink: "speaking/denver-startup-week-2019"
 ---
 Writing effective, sustainable, and flexible multiplatform code has been the White Whale of many a software engineer's career. At Quizlet, we've spent several years exploring and refining how to use shared code to develop a high-quality learning experience for over 50 million monthly active users.
 

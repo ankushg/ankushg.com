@@ -3,8 +3,8 @@ locale: en-US
 title: Ankush Gupta
 name: Ankush Gupta
 url: https://ankushg.com
-repository: ankushg/ankushg.github.io
-email: 
+repository: ankushg/ankushg.com
+email: me@ankushg.com
 description: Trials and tribulations of Ankush, the Software Engineer.
 twitter_username: ankushg
 github_username: ankushg
@@ -90,33 +90,34 @@ defaults:
     path: ""
   values:
     layout: single
-- scope:
-    path: "posts"
-  values:
-    layout: single
-    permalink: "/posts/:title/"
     author_profile: true
-    read_time: false
+- scope:
+    path: "_posts/posts"
+  values:
+    permalink: "/posts/:title/"
+    show_date: true
+    read_time: true
     comments: true
     share: true
     related: true
 - scope:
-    path: "speaking"
+    path: "_posts/speaking"
   values:
-    layout: single
+    show_date: true
     permalink: "/speaking/:title/"
+    read_time: false
 - scope:
-    path: "projects"
+    path: "_posts/projects"
   values:
-    layout: single
+    show_date: true
     permalink: "/projects/:title/"
+    read_time: false
 - scope:
     path: "_pages"
     type: "pages"
   values:
-    layout: single
-    author_profile: true
     permalink: "/:basename"
+    show_date: false
 category_archive:
   type: liquid
   path: "/categories/"

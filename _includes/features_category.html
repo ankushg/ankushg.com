@@ -1,28 +1,52 @@
 {% assign entries = site.categories[include.category] %}
-{% assign permalink = site.data.collections[include.category].permalink %}
+{% assign category_permalink = site.data.collections[include.category].permalink %}
+{% assign items = entries | where: "feature", true | sort: 'date' | reverse %}
 
 <div class="feature__wrapper">
-  {% assign items = entries | where: "feature", true | sort: 'date' | reverse %}
 
   {% for post in items limit: 3 %}
-    {% if include.alignment %}
+    {% assign teaser_image_path = post.header.teaser %}
+    {% assign teaser_alt = post.header.image_description| markdownify | remove: "<p>" | remove: "</p>" %}
+    {% assign image_caption = post.header.teaser_caption| markdownify | remove: "<p>" | remove: "</p>" %}
+    {% assign title =  post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+    {% assign excerpt = post.excerpt | markdownify | remove: "<p>" | remove: "</p>" %}
 
-      {% if include.alignment == "alternate" %}
-        {% capture local_alignment %} {%- cycle 'left', 'right' -%} {% endcapture %}
-      {% else %}
-        {% capture local_alignment %}{{ include.alignment }}{% endcapture %}
-      {% endif %}
+    <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
+      <article class="archive__item"  itemscope itemtype="https://schema.org/CreativeWork">
+        {% if teaser_image_path %}
+          <div class="archive__item-teaser">
+            <img src="{{ teaser_image_path | relative_url }}"
+                alt="{% if teaser_alt %}{{ teaser_alt }}{% endif %}">
+            {% if f.image_caption %}
+              <span class="archive__item-caption">{{ f.image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
 
-      {% include archive-single.html type="feature" alignment=local_alignment %}
-    {% else %}
-      {% include archive-single.html type="feature"%}
-    {% endif %}
+        <div class="archive__item-body">
+          {% if title %}
+            <h2 class="archive__item-title" itemprop="headline">
+              {% if post.link %}
+                <a href="{{ url }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+              {% else %}
+                <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+              {% endif %}
+            </h2>
+          {% endif %}
+
+          {% if excerpt %}
+            <div class="archive__item-excerpt" itemprop="description">
+              {{ excerpt | markdownify }}
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    </div>
   {% endfor %}
 
-  <div class="feature__item--center pagination">
-      <ul>
-        <li><a href="{{ permalink | relative_url }}">See more</a></li>
-      </ul>
+  <div class="feature__item--center">
+    <a href="{{ category_permalink | relative_url }}" class="text-center btn btn--info">See all {{include.category}}</a>
   </div>
+
 </div>
 

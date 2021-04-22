@@ -1,8 +1,12 @@
 ---
 permalink: "/about/"
 title: About Me
-
+author_profile: false
 ---
+<div class = "author__avatar" markdown="1">
+  ![Ankush Gupta](/assets/images/bio-photo.jpg){: .align-left }
+</div>
+
 I’m a Software Engineer at Quizlet.
 
 I primarily focus on delivering awesome experiences with Android and Kotlin Multiplatform -- both for our users and my fellow engineers.

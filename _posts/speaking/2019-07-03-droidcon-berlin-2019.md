@@ -1,7 +1,7 @@
 ---
 title: "droidcon Berlin 2019: A Journey in Shared Code with Kotlin Multiplatform"
 date: 2019-07-03
-categories: 
+categories:
   - speaking
 feature: true
 tags:
@@ -10,7 +10,7 @@ tags:
   - kotlin multiplatform
   - kmp
   - kmm
-excerpt: "droidcon Berlin: July 3, 2019. <br>My first time speaking at a conference!"
+excerpt: "droidcon Berlin. <br> My first time speaking at a conference!"
 header:
   overlay_color: "#333"
   teaser: /assets/images/droidcon_berlin_2019.jpg
@@ -19,6 +19,7 @@ header:
       url: "https://www.droidcon.com/media-detail?video=374874028"
     - label: "See the Slides"
       url: "https://speakerdeck.com/ankushg/a-journey-in-shared-code-with-kotlin-multiplatform-droidcon-berlin-2019"
+permalink: "speaking/droidcon-berlin-2019"
 ---
 
 {% include video id="374874028" provider="vimeo" %}
