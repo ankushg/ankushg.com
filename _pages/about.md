@@ -3,7 +3,9 @@ permalink: "/about/"
 title: About Me
 author_profile: false
 ---
-![A picture of Ankush](/assets/images/bio-photo.jpg){: .align-right}
+<div class = "author__avatar" markdown="1">
+  ![Ankush Gupta](/assets/images/bio-photo.jpg){: .align-left }
+</div>
 
 I’m a Software Engineer at Quizlet.
 
