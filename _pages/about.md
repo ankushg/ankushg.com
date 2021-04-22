@@ -1,8 +1,10 @@
 ---
 permalink: "/about/"
 title: About Me
-
+author_profile: false
 ---
+![A picture of Ankush](/assets/images/bio-photo.jpg){: .align-right}
+
 I’m a Software Engineer at Quizlet.
 
 I primarily focus on delivering awesome experiences with Android and Kotlin Multiplatform -- both for our users and my fellow engineers.
