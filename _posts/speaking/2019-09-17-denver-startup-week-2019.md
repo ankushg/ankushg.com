@@ -10,7 +10,7 @@ tags:
   - kotlin multiplatform
   - kmp
   - kmm
-excerpt: "Denver Startup Week 2019: Sept. 17, 2019. <br>Free community event!"
+excerpt: "Denver Startup Week 2019.  <br>Free community event!"
 header:
   teaser: /assets/images/dsw_2019.png
   overlay_color: "#333"

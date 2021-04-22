@@ -10,7 +10,7 @@ tags:
   - kotlin multiplatform
   - kmp
   - kmm
-excerpt: "droidcon Berlin: July 3, 2019. <br>My first time speaking at a conference!"
+excerpt: "droidcon Berlin. <br> My first time speaking at a conference!"
 header:
   overlay_color: "#333"
   teaser: /assets/images/droidcon_berlin_2019.jpg
