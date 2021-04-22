@@ -2,8 +2,8 @@
 title: "Quizlet + Kotlin Multiplatform Case Study"
 link: https://kotlinlang.org/lp/mobile/case-studies/quizlet/
 categories: 
-  - publications
   - posts
+  - publications
 feature: true
 tags:
   - kotlin
@@ -15,6 +15,7 @@ header:
   overlay_color: "#333"
   teaser: /assets/images/kmm_hero.jpg
   og_image: /assets/images/kmm_hero.jpg
+read_time: false
 ---
 
 I authored a [case study](https://kotlinlang.org/lp/mobile/case-studies/quizlet/) with JetBrains to share how Quizlet is using Kotlin Multiplatform to simplify our development efforts.
