@@ -116,7 +116,7 @@ defaults:
     path: "_pages"
     type: "pages"
   values:
-    permalink: "/:basename"
+    permalink: "/:basename/"
     show_date: false
 category_archive:
   type: liquid
