@@ -87,43 +87,39 @@ footer:
     url: https://www.linkedin.com/in/ankushmg/
 defaults:
 - scope:
-    path: ''
-    type: posts
+    path: ""
   values:
     layout: single
+- scope:
+    path: "posts"
+  values:
+    layout: single
+    permalink: "/posts/:title/"
     author_profile: true
     read_time: false
     comments: true
     share: true
     related: true
 - scope:
-    path: _pages
-    type: pages
+    path: "speaking"
   values:
     layout: single
-    author_profile: true
+    permalink: "/speaking/:title/"
 - scope:
-    path: _projects
-    type: projects
+    path: "projects"
   values:
     layout: single
-    author_profile: true
+    permalink: "/projects/:title/"
 - scope:
-    path: _speaking
-    type: speaking
+    path: "_pages"
+    type: "pages"
   values:
     layout: single
     author_profile: true
+    permalink: "/:basename"
 category_archive:
   type: liquid
   path: "/categories/"
 tag_archive:
   type: liquid
   path: "/tags/"
-collections:
-  projects:
-    output: true
-    permalink: "/:collection/:path/"
-  speaking:
-    output: true
-    permalink: "/:collection/:path/"

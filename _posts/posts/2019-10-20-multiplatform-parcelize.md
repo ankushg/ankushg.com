@@ -1,6 +1,7 @@
 ---
 title: Using `@Parcelize` in Kotlin Multiplatform
-categories: industry
+categories: 
+  - posts
 feature: true
 tags:
   - kotlin

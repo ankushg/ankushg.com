@@ -16,6 +16,7 @@ header:
       url: "/assets/docs/zauberflote-2015.pdf"
     - label: "Github"
       url: "https://github.com/anishathalye/zauberflote"
+permalink: "/projects/zauberflote"
 ---
 
 Zauberflöte is a peer-to-peer content delivery network. The system uses WebRTC to cache and distribute content between peers.

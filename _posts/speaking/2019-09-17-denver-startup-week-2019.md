@@ -1,13 +1,16 @@
 ---
-title: Principles of Shared Code
+title: "Denver Startup Week 2019: Principles of Shared Code"
 date: 2019-09-17
 feature: true
-categories: speaking
+categories: 
+  - speaking
 tags:
   - android
   - kotlin
   - kotlin multiplatform
-excerpt: "Denver Startup Week 2019: Sept. 17, 2019. <br>Free event!"
+  - kmp
+  - kmm
+excerpt: "Denver Startup Week 2019: Sept. 17, 2019. <br>Free community event!"
 header:
   teaser: /assets/images/dsw_2019.png
   overlay_color: "#333"
