@@ -1,5 +1,5 @@
 ---
-title: Powering Worldwide Learning with Kotlin Multiplatform
+title: "San Francisco Kotlin Meetup: Powering Worldwide Learning with Kotlin Multiplatform"
 date: 2019-11-07
 categories: 
   - speaking
@@ -7,6 +7,8 @@ tags:
   - android
   - kotlin
   - kotlin multiplatform
+  - kmp
+  - kmm
 excerpt: "San Francisco Kotlin Meetup: Nov. 7, 2019. <br>Free [Kotlin/Everywhere](https://events.withgoogle.com/kotlin-everywhere/) community event!"
 header:
   overlay_color: "#333"
