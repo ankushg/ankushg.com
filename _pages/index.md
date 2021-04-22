@@ -11,12 +11,12 @@ header:
 ---
 ## Recent Posts
 
-{% include features_collection collection="posts" %}
+{% include features_category.html category="posts" %}
 
 ## Recent Talks
 
-{% include features_collection collection="speaking" %}
+{% include features_category.html category="speaking" %}
 
 ## Recent Projects
 
-{% include features_collection collection="projects" %}
+{% include features_category.html category="projects" %}

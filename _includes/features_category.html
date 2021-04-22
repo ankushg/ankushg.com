@@ -1,5 +1,5 @@
-{% assign entries = site[include.collection] %}
-{% assign permalink = site.data.collections[include.collection].permalink %}
+{% assign entries = site.categories[include.category] %}
+{% assign permalink = site.data.collections[include.category].permalink %}
 
 <div class="feature__wrapper">
   {% assign items = entries | where: "feature", true | sort: 'date' | reverse %}
