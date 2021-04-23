@@ -33,3 +33,10 @@ presets:
       medium: calc(100vw - 36px)
       large: calc(100vw - 360px)
       x-large: 636px
+  hero:
+    widths: [600, 768, 1024, 1280, 1400, 9999]
+    sizes:
+      small: 100vw
+      medium: 100vw
+      large: 100vw
+      x-large: 100vw
