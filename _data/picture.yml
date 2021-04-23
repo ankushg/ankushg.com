@@ -1,0 +1,20 @@
+media_queries:
+  small: "max-width: 600px"
+  medium: "max-width: 768px"
+  large: "max-width: 1024px"
+  x-large: "max-width: 1280px"
+  max-width: "min-width: 1400px"
+presets:
+  default:
+    markup: auto
+    formats: [webp, original]
+    widths: [600, 768, 1024, 1280, 1400, 9999]
+    sizes:
+      small: 100vw
+      medium: 100vw
+      large: 100vw
+      x-large: 100vw
+      max-width: 9999px
+    strip_metadata: true
+    keep: attention
+    dimension_attributes: true
