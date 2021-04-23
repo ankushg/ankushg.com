@@ -6,7 +6,7 @@ media_queries:
   max-width: "min-width: 1400px"
 presets:
   default:
-    markup: auto
+    markup: img
     formats: [webp, original]
     widths: [600, 768, 1024, 1280, 1400, 9999]
     sizes:
@@ -19,6 +19,8 @@ presets:
     keep: attention
     dimension_attributes: true
   feature:
+    markup: img
+    formats: [webp, original]
     widths: [600, 768, 1024, 1280, 1400, 9999]
     sizes:
       small: 100vw
@@ -26,17 +28,27 @@ presets:
       large:  calc((100vw - 180px) / 3)
       x-large: 300px
     strip_metadata: true
+    keep: attention
+    dimension_attributes: true
   figure:
+    markup: img
     widths: [600, 768, 1024, 1280, 1400, 9999]
     sizes:
       small: calc(100vw - 32px)
       medium: calc(100vw - 36px)
       large: calc(100vw - 360px)
       x-large: 636px
+    strip_metadata: true
+    keep: attention
+    dimension_attributes: true
   hero:
+    markup: img
     widths: [600, 768, 1024, 1280, 1400, 9999]
     sizes:
       small: 100vw
       medium: 100vw
       large: 100vw
       x-large: 100vw
+    strip_metadata: true
+    keep: attention
+    dimension_attributes: true
