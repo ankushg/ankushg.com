@@ -26,3 +26,10 @@ presets:
       large:  calc((100vw - 180px) / 3)
       x-large: 300px
     strip_metadata: true
+  figure:
+    widths: [600, 768, 1024, 1280, 1400, 9999]
+    sizes:
+      small: calc(100vw - 32px)
+      medium: calc(100vw - 36px)
+      large: calc(100vw - 360px)
+      x-large: 636px
