@@ -1,0 +1,15 @@
+<figure class="{{ include.class }}">
+  {% if include.alt %}
+    {{ assign alt = include.alt }}
+  {% else %}
+    {{ assign alt = "" }}
+  {% endif %}
+
+  {% picture figure "{{ include.image_path | relative_url }}" --img alt="{{ alt }}" %}
+
+  {%- if include.caption -%}
+    <figcaption>
+      {{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}
+    </figcaption>
+  {%- endif -%}
+</figure>
