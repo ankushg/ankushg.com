@@ -8,7 +8,7 @@
     {% assign teaser_image_path = post.header.teaser %}
     {% assign teaser_alt = post.header.image_description %}
     {% assign image_caption = post.header.teaser_caption| markdownify | remove: "<p>" | remove: "</p>" %}
-    {% assign title =  post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+    {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
     {% assign excerpt = post.excerpt | markdownify | remove: "<p>" | remove: "</p>" %}
 
     <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
@@ -27,7 +27,7 @@
           {% if title %}
             <h2 class="archive__item-title" itemprop="headline">
               {% if post.link %}
-                <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+                <a href="{{ post.link }}">{{ title }}</a>
               {% else %}
                 <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
               {% endif %}
