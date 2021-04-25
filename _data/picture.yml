@@ -44,11 +44,12 @@ presets:
     strip_metadata: true
     keep: attention
     dimension_attributes: true
+  avatar:
+    markup: img
+    widths: [36, 100, 200]
     sizes:
-      small: 100vw
-      medium: 100vw
-      large: 100vw
-      x-large: 100vw
+      large: 36px
+    size: 98px
     strip_metadata: true
     keep: attention
     dimension_attributes: true
