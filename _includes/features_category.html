@@ -6,7 +6,7 @@
 
   {% for post in items limit: 3 %}
     {% assign teaser_image_path = post.header.teaser %}
-    {% assign teaser_alt = post.header.image_description %}
+    {% assign teaser_alt = post.header.image_description | default: "" %}
     {% assign image_caption = post.header.teaser_caption| markdownify | remove: "<p>" | remove: "</p>" %}
     {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
     {% assign excerpt = post.excerpt | markdownify | remove: "<p>" | remove: "</p>" %}
@@ -15,8 +15,7 @@
       <article class="archive__item"  itemscope itemtype="https://schema.org/CreativeWork">
         {% if teaser_image_path %}
           <div class="archive__item-teaser">
-            <img src="{{ teaser_image_path | relative_url }}"
-                alt="{% if teaser_alt %}{{ teaser_alt }}{% endif %}">
+            {% picture feature "{{teaser_image_path}}" --img alt="{{ teaser_alt }}" %}
             {% if f.image_caption %}
               <span class="archive__item-caption">{{ f.image_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
             {% endif %}

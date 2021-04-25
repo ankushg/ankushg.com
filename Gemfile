@@ -27,4 +27,5 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-include-cache"
   gem "jemoji"
+  gem 'jekyll_picture_tag'
 end

@@ -51,6 +51,7 @@ plugins:
 - jekyll-feed
 - jemoji
 - jekyll-include-cache
+- jekyll_picture_tag
 author:
   name: Ankush Gupta
   avatar: "/assets/images/bio-photo.jpg"
