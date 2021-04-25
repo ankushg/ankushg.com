@@ -10,7 +10,6 @@
   {% assign title = post.title %}
 {% endif %}
 
-<!-- Custom Image Handling -->
 {% if post.header.image_description %}
   {% capture teaser_alt %}{{ post.header.image_description }}{% endcapture %}
 {% else %}
@@ -23,11 +22,12 @@
   {% assign teaser_caption = nil %}
 {% endif %}
 
-{% assign show_teaser = (include.type == "grid" or include.type == "feature") and teaser %}
+{% assign is_teaser_type = include.type == "grid" or include.type == "feature" %}
+{% assign show_teaser = teaser and is_teaser_type %}
 
 <div class="{{ include.type | default: "list" }}__item{% if include.alignment %}--{{ include.alignment }}{% endif %}">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if show_teaser == true %}
+    {% if show_teaser %}
       <div class="archive__item-teaser">
         <img src=
           {% if teaser contains "://" %}
