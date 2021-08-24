@@ -1,18 +1,11 @@
 name: Lighthouse
 on: pull_request
 jobs:
-  build:
+  lighthouse:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - name: Wait for Cloudflare Pages deploy to succeed
-        uses: lewagon/wait-on-check-action@1.0.0
-        with:
-          ref: ${{ github.ref }}
-          check-name: 'Cloudflare Pages'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v4.9
@@ -20,6 +13,14 @@ jobs:
         run: |
           sanitized_branch=$(echo ${{ steps.branch-name.outputs.current_branch }} | sed -e 's/\//-/g')
           echo "preview_url=$sanitized_branch.ankushg.pages.dev" >> $GITHUB_ENV
+          echo "Preview url is ${{ env.preview_url }}"
+      - name: Wait for Cloudflare Pages deploy to succeed
+        uses: lewagon/wait-on-check-action@1.0.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: "Cloudflare Pages"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 20
       - name: Audit URLs using Lighthouse
         id: LHCI
         uses: treosh/lighthouse-ci-action@v8
