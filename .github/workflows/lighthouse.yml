@@ -12,8 +12,9 @@ jobs:
       - name: Set the preview url
         run: |
           sanitized_branch=$(echo ${{ steps.branch-name.outputs.current_branch }} | sed -e 's/\//-/g')
-          echo "preview_url=$sanitized_branch.ankushg.pages.dev" >> $GITHUB_ENV
-          echo "Preview url is ${{ env.preview_url }}"
+          preview_url=https://$sanitized_branch.ankushg.pages.dev
+          echo "Cloudflare preview url is $preview_url"
+          echo "preview_url=$preview_url" >> $GITHUB_ENV
       - name: Wait for Cloudflare Pages deploy to succeed
         uses: lewagon/wait-on-check-action@v1.0.0
         with:
