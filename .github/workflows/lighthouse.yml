@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: mkdir /tmp/artifacts
       - uses: actions/checkout@v2
       - name: Get branch name
         id: branch-name
@@ -22,19 +23,27 @@ jobs:
           check-name: "Cloudflare Pages"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 20
-      - name: Audit URLs using Lighthouse
-        id: LHCI
-        uses: treosh/lighthouse-ci-action@v8
+      - name: Run Lighthouse
+        uses: foo-software/lighthouse-check-action@master
+        id: lighthouseCheck
         with:
-          urls: |
-            ${{ env.preview_url }}
-            ${{ env.preview_url }}/posts/
-            ${{ env.preview_url }}/about/
-          budgetPath: ./budget.json
-          uploadArtifacts: true
-          runs: 3
-      - name: Add results to run check
-        uses: manrueda/lighthouse-report-action@v1.1.2
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+          author: ${{ github.actor }}
+          branch: ${{ github.ref }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          urls: '${{ env.preview_url }},${{ env.preview_url }}/posts/,${{ env.preview_url }}/about/'
+          outputDirectory: /tmp/artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
         with:
-          reports: ${{steps.LHCI.outputs.resultsPath}}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: Lighthouse reports
+          path: /tmp/artifacts
+      - name: Handle Lighthouse Check results
+        uses: foo-software/lighthouse-check-status-action@master
+        with:
+          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
+          minAccessibilityScore: "90"
+          minBestPracticesScore: "90"
+          minPerformanceScore: "50"
+          minProgressiveWebAppScore: "0"
+          minSeoScore: "90"
