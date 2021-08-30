@@ -15,9 +15,9 @@ jobs:
           echo "preview_url=$sanitized_branch.ankushg.pages.dev" >> $GITHUB_ENV
           echo "Preview url is ${{ env.preview_url }}"
       - name: Wait for Cloudflare Pages deploy to succeed
-        uses: lewagon/wait-on-check-action@1.0.0
+        uses: lewagon/wait-on-check-action@v1.0.0
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
           check-name: "Cloudflare Pages"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 20
