@@ -1,0 +1,49 @@
+name: Lighthouse
+on: pull_request
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: mkdir /tmp/artifacts
+      - uses: actions/checkout@v2
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v4.9
+      - name: Set the preview url
+        run: |
+          sanitized_branch=$(echo ${{ steps.branch-name.outputs.current_branch }} | sed -e 's/\//-/g')
+          preview_url=https://$sanitized_branch.ankushg.pages.dev
+          echo "Cloudflare preview url is $preview_url"
+          echo "preview_url=$preview_url" >> $GITHUB_ENV
+      - name: Wait for Cloudflare Pages deploy to succeed
+        uses: lewagon/wait-on-check-action@v1.0.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          check-name: "Cloudflare Pages"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 20
+      - name: Run Lighthouse
+        uses: foo-software/lighthouse-check-action@master
+        id: lighthouseCheck
+        with:
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+          author: ${{ github.actor }}
+          branch: ${{ github.ref }}
+          sha: ${{ github.event.pull_request.head.sha }}
+          urls: '${{ env.preview_url }},${{ env.preview_url }}/posts/,${{ env.preview_url }}/about/'
+          outputDirectory: /tmp/artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: Lighthouse reports
+          path: /tmp/artifacts
+      - name: Handle Lighthouse Check results
+        uses: foo-software/lighthouse-check-status-action@master
+        with:
+          lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
+          minAccessibilityScore: "90"
+          minBestPracticesScore: "90"
+          minPerformanceScore: "75"
+          minProgressiveWebAppScore: "0"
+          minSeoScore: "80"
