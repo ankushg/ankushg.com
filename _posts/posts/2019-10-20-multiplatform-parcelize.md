@@ -1,6 +1,6 @@
 ---
 title: Using `@Parcelize` in Kotlin Multiplatform
-categories: 
+categories:
   - posts
 feature: true
 tags:
@@ -11,7 +11,9 @@ toc: true
 toc_sticky: true
 excerpt: Using Platform-Specific Declarations to unlock `@Parcelize` in [Kotlin Multiplatform](https://www.jetbrains.com/lp/mobilecrossplatform/) Projects
 header:
-  overlay_color: "#333"
+  overlay_filter: "rgba(0, 0, 0, 0.5)"
+  overlay_image: /assets/images/parcels.jpg
+  caption: Photo by [Joanna Kosinska](https://unsplash.com/photos/B6yDtYs2IgY)
   teaser: /assets/images/parcels.jpg
   teaser_caption: Photo by [Joanna Kosinska](https://unsplash.com/photos/B6yDtYs2IgY)
   actions:
