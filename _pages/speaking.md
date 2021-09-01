@@ -1,5 +1,5 @@
 ---
-title: Speaking
+title: Talks
 layout: category
 taxonomy: speaking
 permalink: /speaking/
