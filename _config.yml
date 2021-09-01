@@ -95,7 +95,7 @@ defaults:
     show_date: true
     read_time: true
     comments: true
-    share: true
+    share: false
     related: true
 - scope:
     path: "_posts/speaking"
