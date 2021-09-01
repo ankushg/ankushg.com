@@ -1,5 +1,5 @@
 ---
-title: "droidcon Berlin 2019: A Journey in Shared Code with Kotlin Multiplatform"
+title: "A Journey in Shared Code with Kotlin Multiplatform"
 date: 2019-07-03
 categories:
   - speaking
@@ -10,7 +10,7 @@ tags:
   - kotlin multiplatform
   - kmp
   - kmm
-excerpt: "droidcon Berlin. <br> My first time speaking at a conference!"
+excerpt: "droidcon Berlin 2019: My first time speaking at a conference!"
 header:
   overlay_color: "#333"
   teaser: /assets/images/droidcon_berlin_2019.jpg
