@@ -1,8 +1,8 @@
 ---
 title: "Shared Code at Quizlet: Deciding on Kotlin Multiplatform"
-categories: 
+categories:
   - posts
-feature: true
+feature: false
 tags:
   - kotlin
   - mobile
