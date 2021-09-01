@@ -1,5 +1,5 @@
 ---
-title: "Denver Startup Week 2019: Principles of Shared Code"
+title: "Principles of Shared Code"
 date: 2019-09-17
 feature: true
 categories:
