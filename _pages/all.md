@@ -1,10 +1,12 @@
 ---
 title: All Content
-layout: archive 
+layout: archive
 ---
 
 <div class="entries-list">
   {% for post in site.posts %}
-    {% include archive-simple.html type="list" %}
+    <section class="taxonomy__section">
+      {% include archive-simple.html type="list" %}
+    </section>
   {% endfor %}
 </div>
