@@ -21,6 +21,9 @@ header:
       url: "https://github.com/ankushg/MultiplatformParcelize"
 ---
 
+Jetbrains has deprecated the Kotlin Android Extensions plugin and separated `@Parcelize` into a new plugin which is maintained by Google. [Read this article to see how to migrate to the new plugin](https://proandroiddev.com/migrating-the-deprecated-kotlin-android-extensions-compiler-plugin-to-viewbinding-d234c691dec7#e1a5): it's quite easy!
+{: .notice--warning}
+
 Corresponding code for this blog post [is available on GitHub.](https://github.com/ankushg/MultiplatformParcelize)
 {: .notice--info}
 
