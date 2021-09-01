@@ -28,6 +28,7 @@ presets:
     dimension_attributes: true
   figure:
     markup: img
+    formats: [webp, original]
     widths: [450, 650, 850, 1000]
     sizes:
       medium: calc(100vw - 32px) # (also includes small)
@@ -39,6 +40,7 @@ presets:
     dimension_attributes: true
   hero:
     markup: img
+    formats: [webp, original]
     widths: [400, 800, 1200, 1600, 2400, 4800]
     size: 100vw
     strip_metadata: true
@@ -46,6 +48,7 @@ presets:
     dimension_attributes: true
   avatar:
     markup: img
+    formats: [webp, original]
     widths: [36, 100, 200]
     sizes:
       large: 36px

@@ -29,17 +29,17 @@
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     {% if show_teaser %}
       <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | relative_url }}"
-          {% endif %}
-          alt="{% if teaser_alt %}{{ teaser_alt }}{% endif %}">
+        {% if teaser contains "://" %}
+          {% assign teaser_image_path = teaser %}
+        {% else %}
+          {% assign teaser_image_path = teaser | relative_url %}
+        {% endif %}
 
-          {% if teaser_caption %}
-            <span class="archive__item-caption">{{ teaser_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
-          {% endif %}
+        {% picture figure "{{teaser_image_path}}" --img alt="{{ teaser_alt }}" %}
+
+        {% if teaser_caption %}
+          <span class="archive__item-caption">{{ teaser_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+        {% endif %}
       </div>
     {% endif %}
 

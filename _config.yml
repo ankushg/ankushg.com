@@ -119,9 +119,3 @@ defaults:
   values:
     permalink: "/:basename/"
     show_date: false
-category_archive:
-  type: liquid
-  path: "/categories/"
-tag_archive:
-  type: liquid
-  path: "/tags/"
