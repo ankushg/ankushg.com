@@ -1,0 +1,7 @@
+{%- for post in site.categories[include.taxonomy] -%}
+  {%- unless post.hidden -%}
+    <section class="taxonomy__section">
+      {% include archive-single.html %}
+    </section>
+  {%- endunless -%}
+{%- endfor -%}
