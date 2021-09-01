@@ -58,11 +58,7 @@ author:
   bio: I'm a Software Engineer at [Quizlet](https://quizlet.com).<br/><br/>I
     currently focus delivering awesome experiences with Android and Kotlin Multiplatform
     -- both for our users and my fellow engineers.
-  location: San Francisco, CA
   links:
-  - label: Website
-    icon: fas fa-fw fa-link
-    url: https://ankushg.com
   - label: Twitter
     icon: fab fa-fw fa-twitter-square
     url: https://twitter.com/ankushg
