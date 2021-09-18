@@ -17,7 +17,7 @@ jobs:
           echo "Cloudflare preview url is $preview_url"
           echo "preview_url=$preview_url" >> $GITHUB_ENV
       - name: Wait for Cloudflare Pages deploy to succeed
-        uses: lewagon/wait-on-check-action@v1.0.0
+        uses: lewagon/wait-on-check-action@v1.1.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           check-name: "Cloudflare Pages"
