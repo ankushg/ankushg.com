@@ -1,0 +1,16 @@
+{
+	"subject": "acct:ankush@social.lol",
+	"aliases": ["https://social.lol/@ankush", "https://social.lol/users/ankush"],
+	"links": [{
+		"rel": "http://webfinger.net/rel/profile-page",
+		"type": "text/html",
+		"href": "https://social.lol/@ankush"
+	}, {
+		"rel": "self",
+		"type": "application/activity+json",
+		"href": "https://social.lol/users/ankush"
+	}, {
+		"rel": "http://ostatus.org/schema/1.0/subscribe",
+		"template": "https://social.lol/authorize_interaction?uri={uri}"
+	}]
+}
