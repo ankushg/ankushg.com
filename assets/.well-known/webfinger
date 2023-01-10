@@ -1,10 +1,10 @@
 {
-	"subject": "acct:ankush@mastodon.social",
-	"aliases": [
+  "subject": "acct:ankush@mastodon.social",
+  "aliases": [
     "https://mastodon.social/@ankush",
     "https://mastodon.social/users/ankush"
   ],
-	"links": [
+  "links": [
     {
       "rel": "http://webfinger.net/rel/profile-page",
       "type": "text/html",
