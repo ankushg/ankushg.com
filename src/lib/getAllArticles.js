@@ -9,7 +9,7 @@ async function importArticle(articleFilename) {
     slug: articleFilename.replace(/(\/index)?\.mdx$/, ''),
     ...meta,
     component,
-  }
+  };
 }
 
 export async function getAllArticles() {
