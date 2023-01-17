@@ -1,0 +1,35 @@
+---
+import Card from '../Card/Card.astro'
+import CardCta from '../Card/CardCta.astro'
+import CardDescription from '../Card/CardDescription.astro'
+import CardEyebrow from '../Card/CardEyebrow.astro'
+import CardTitle from '../Card/CardTitle.astro'
+import type { SpeakingAppearanceContentItem } from '../../content/config'
+import { hrefTo } from '../../data/navigation'
+import Markdown from '../Markdown.astro'
+
+interface Props {
+  appearance: SpeakingAppearanceContentItem
+}
+
+const { appearance } = Astro.props
+
+const description = appearance.data.description ?? appearance.data.excerpt
+---
+
+<Card as="article">
+  <CardTitle as="h3" href={hrefTo(appearance)}>
+    {appearance.data.title}
+  </CardTitle>
+  <CardEyebrow decorate>{appearance.data.event}</CardEyebrow>
+
+  {
+    description && (
+      <CardDescription>
+        <Markdown markdown={description} />
+      </CardDescription>
+    )
+  }
+
+  <CardCta>{appearance.data.cta}</CardCta>
+</Card>

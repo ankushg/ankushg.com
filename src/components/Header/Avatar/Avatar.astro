@@ -1,0 +1,30 @@
+---
+import Link from '../../Link.astro'
+import avatarImage from '../../../images/avatar.jpg'
+import Image from '../../Image.astro'
+
+interface Props {
+  class?: string
+  large?: boolean
+  style?: string | Record<string, any> | undefined | null
+}
+const { class: className, large = false, ...attrs } = Astro.props
+---
+
+<Link
+  href="/"
+  aria-label="Home"
+  class:list={[className, 'pointer-events-auto']}
+  {...attrs}
+>
+  <Image
+    src={avatarImage}
+    alt=""
+    sizes={large ? '4rem' : '2.25rem'}
+    class:list={[
+      'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
+      large ? 'h-16 w-16' : 'h-9 w-9',
+    ]}
+    priority
+  />
+</Link>

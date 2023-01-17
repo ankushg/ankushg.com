@@ -1,0 +1,8 @@
+jekyll/**
+nextjs/**
+
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+dist/**

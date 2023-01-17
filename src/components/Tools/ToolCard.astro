@@ -1,0 +1,17 @@
+---
+import type { ToolData } from '../../data/tools'
+import Card from '../Card/Card.astro'
+import CardTitle from '../Card/CardTitle.astro'
+import CardDescription from '../Card/CardDescription.astro'
+
+type Props = ToolData
+
+const { name, href, description } = Astro.props
+---
+
+<Card as="li">
+  <CardTitle as="h3" href={href}>
+    {name}
+  </CardTitle>
+  <CardDescription>{description}</CardDescription>
+</Card>

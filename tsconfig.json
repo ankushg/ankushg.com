@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "skipLibCheck": false,
+    // disabled for now
+    "exactOptionalPropertyTypes": false,
+    "types": [
+      "astro/client"
+      // "@astrojs/image/client"
+    ]
+  },
+  "paths": {
+    "@/*": ["src/*"],
+    "@components/*": ["src/components/*"],
+    "@layouts/*": ["src/layouts/*"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "jekyll", "nextjs"]
+}

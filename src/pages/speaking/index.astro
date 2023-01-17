@@ -1,0 +1,28 @@
+---
+import { AUTHOR } from '../../consts'
+import SimpleLayout from '../../layouts/SimpleLayout.astro'
+import SpeakingSection from '../../components/Speaking/SpeakingSection.astro'
+import Appearance from '../../components/Speaking/SpeakingAppearance.astro'
+import { getAllAppearances } from '../../content/config'
+
+const appearances = await getAllAppearances()
+
+const props = {
+  metaTitle: `Speaking - ${AUTHOR}`,
+  metaDescription:
+    'I’ve spoken at events all around the world and been interviewed for many podcasts.',
+  heading:
+    'I’ve spoken at events all around the world and been interviewed for many podcasts.',
+  introText:
+    'One of my favorite ways to share my ideas is live on stage, where there’s so much more communication bandwidth than there is in writing.',
+}
+---
+
+<SimpleLayout {...props}>
+  <span slot="intro">{props.introText}</span>
+  <div class="space-y-20">
+    <SpeakingSection title="Talks">
+      {appearances.map((appearance) => <Appearance appearance={appearance} />)}
+    </SpeakingSection>
+  </div>
+</SimpleLayout>

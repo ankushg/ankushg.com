@@ -1,0 +1,18 @@
+---
+import type { SocialLinkContent } from '../../data/SocialLinks'
+import Link from '../Link.astro'
+import Icon from 'astro-iconify'
+
+type Props = SocialLinkContent
+
+const { iconName, text, href } = Astro.props
+// TODO: use Image instead of img?
+---
+
+<Link class="group -m-1 p-1" href={href}>
+  <Icon
+    alt={text}
+    name={iconName}
+    class="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300"
+  />
+</Link>

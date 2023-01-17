@@ -1,9 +1,9 @@
 {
-	"extends": [
-		"config:base",
-		"group:allNonMajor",
+  "extends": [
+    "config:base",
+    "group:allNonMajor",
     ":automergeMinor",
     ":enableVulnerabilityAlertsWithLabel(security)",
     ":assignAndReview(ankushg)"
-	]
+  ]
 }

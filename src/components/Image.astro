@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'img'> {
+  alt: string
+  priority?: boolean
+  unoptimized?: boolean
+}
+
+const { alt, ...attrs } = Astro.props
+// TODO: replace with @astrojs/Image
+---
+
+<img alt={alt} {...attrs} />

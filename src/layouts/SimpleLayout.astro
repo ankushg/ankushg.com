@@ -1,0 +1,32 @@
+---
+import Container from '../components/Container/Container.astro'
+import type { PageMetadata } from '../mytypes'
+import BaseLayout from './BaseLayout.astro'
+
+interface Props extends Partial<PageMetadata> {
+  heading: string
+  introText?: string
+}
+
+const { heading, introText, ...metadata } = Astro.props
+---
+
+<BaseLayout {...metadata}>
+  <Container class="mt-16 sm:mt-32">
+    <header class="max-w-2xl">
+      <slot name="heading">
+        <h1
+          class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+        >
+          {heading}
+        </h1>
+      </slot>
+      <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        <slot name="intro">{introText}</slot>
+      </p>
+    </header>
+    <div class="mt-16 sm:mt-20">
+      <slot />
+    </div>
+  </Container>
+</BaseLayout>

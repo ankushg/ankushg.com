@@ -1,0 +1,15 @@
+---
+import Link from '../Link.astro'
+import type { NavItem } from '../../data/navigation'
+
+type Props = NavItem
+
+const { href, name } = Astro.props
+---
+
+<Link
+  href={href}
+  class="transition hover:text-teal-500 dark:hover:text-teal-400"
+>
+  {name}
+</Link>

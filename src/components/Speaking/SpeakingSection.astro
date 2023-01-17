@@ -1,0 +1,9 @@
+---
+import Section from '../Section.astro'
+
+const { title } = Astro.props
+---
+
+<Section title={title}>
+  <div class="space-y-16"><slot /></div>
+</Section>

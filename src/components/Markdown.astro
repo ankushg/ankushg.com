@@ -1,0 +1,11 @@
+---
+import { renderMarkdownToHtml } from '../utils/renderMarkdown'
+interface Props {
+  markdown: string
+}
+const { markdown } = Astro.props
+
+const renderedPayload = renderMarkdownToHtml(markdown)
+---
+
+<Fragment set:html={renderedPayload} />

@@ -1,0 +1,51 @@
+---
+import Card from '../Card/Card.astro'
+import CardTitle from '../Card/CardTitle.astro'
+import CardEyebrow from '../Card/CardEyebrow.astro'
+import CardDescription from '../Card/CardDescription.astro'
+import CardCta from '../Card/CardCta.astro'
+import type { ArticleContentItem } from '../../content/config'
+import { formatDate } from '../../utils/formatDate'
+import { hrefTo } from '../../data/navigation'
+import Markdown from '../Markdown.astro'
+
+interface Props {
+  article: ArticleContentItem
+}
+
+const { article } = Astro.props
+const description = article?.data?.description ?? article?.data?.excerpt
+---
+
+<article class="md:grid md:grid-cols-4 md:items-baseline">
+  <!-- TODO: description -->
+  <!-- TODO: ctas -->
+  <Card class="md:col-span-3">
+    <CardTitle href={hrefTo(article)}>
+      {article.data.title}
+    </CardTitle>
+    <CardEyebrow
+      as="time"
+      dateTime={article.data.date}
+      class="md:hidden"
+      decorate
+    >
+      {formatDate(article.data.date)}
+    </CardEyebrow>
+    {
+      description && (
+        <CardDescription>
+          <Markdown markdown={description} />
+        </CardDescription>
+      )
+    }
+    <CardCta>{article.data.cta}</CardCta>
+  </Card>
+  <CardEyebrow
+    as="time"
+    dateTime={article.data.date}
+    class="mt-1 hidden md:block"
+  >
+    {formatDate(article.data.date)}
+  </CardEyebrow>
+</article>

@@ -1,0 +1,15 @@
+---
+import type { ToolSectionData } from '../../data/tools'
+import ToolCard from './ToolCard.astro'
+import Section from '../Section.astro'
+
+type Props = ToolSectionData
+
+const { title, tools } = Astro.props
+---
+
+<Section title={title}>
+  <ul class="space-y-16">
+    {tools.map((tool) => <ToolCard {...tool} />)}
+  </ul>
+</Section>

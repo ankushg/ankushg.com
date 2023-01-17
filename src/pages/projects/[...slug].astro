@@ -1,0 +1,18 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+import ArticleLayout from '../../layouts/ArticleLayout.astro'
+import { ProjectsNavItem } from '../../data/navigation'
+
+export async function getStaticPaths() {
+  const project = await getCollection('projects')
+  return project.map((project) => ({
+    params: { slug: project.slug },
+    props: project,
+  }))
+}
+type Props = CollectionEntry<'projects'>
+
+const project = Astro.props
+---
+
+<ArticleLayout article={project} backNavItem={ProjectsNavItem} />

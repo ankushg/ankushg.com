@@ -1,0 +1,27 @@
+---
+import SimpleLayout from '../../layouts/SimpleLayout.astro'
+import ArticleListItem from '../../components/Article/ArticleListItem.astro'
+import { AUTHOR } from '../../consts'
+import { getAllArticles } from '../../content/config'
+const articles = await getAllArticles()
+
+const props = {
+  metaTitle: `Articles - ${AUTHOR}`,
+  metaDescription:
+    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+  heading:
+    'Writing on software design, company building, and the aerospace industry.',
+  introText:
+    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+}
+---
+
+<SimpleLayout {...props}>
+  <div
+    class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
+  >
+    <div class="flex max-w-3xl flex-col space-y-16">
+      {articles.map((article) => <ArticleListItem article={article} />)}
+    </div>
+  </div>
+</SimpleLayout>

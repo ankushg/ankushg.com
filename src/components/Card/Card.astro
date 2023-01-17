@@ -1,0 +1,13 @@
+---
+type CardComponent = 'div' | 'article' | 'li'
+
+interface Props {
+  as?: CardComponent
+  class?: string
+}
+const { class: className, as: Component = 'div' } = Astro.props
+---
+
+<Component class:list={[className, 'group relative flex flex-col items-start']}>
+  <slot />
+</Component>

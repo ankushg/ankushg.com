@@ -1,0 +1,18 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro'
+import { ArticlesNavItem } from '../../data/navigation'
+import { ArticleContentItem, getAllArticles } from '../../content/config'
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles()
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: article,
+  }))
+}
+type Props = ArticleContentItem
+
+const article = Astro.props
+---
+
+<ArticleLayout article={article} backNavItem={ArticlesNavItem} />

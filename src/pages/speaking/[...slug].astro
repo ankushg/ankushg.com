@@ -1,0 +1,18 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+import ArticleLayout from '../../layouts/ArticleLayout.astro'
+import { SpeakingNavItem } from '../../data/navigation'
+
+export async function getStaticPaths() {
+  const appearances = await getCollection('speaking')
+  return appearances.map((appearance) => ({
+    params: { slug: appearance.slug },
+    props: appearance,
+  }))
+}
+type Props = CollectionEntry<'speaking'>
+
+const appearance = Astro.props
+---
+
+<ArticleLayout article={appearance} backNavItem={SpeakingNavItem} />

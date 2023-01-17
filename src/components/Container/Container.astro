@@ -1,0 +1,15 @@
+---
+import InnerContainer from './InnerContainer.astro'
+import OuterContainer from './OuterContainer.astro'
+interface Props {
+  class?: string
+  style?: string | Record<string, any> | undefined | null
+}
+const { class: className, style: styleValue } = Astro.props
+---
+
+<OuterContainer class={className} style={styleValue}>
+  <InnerContainer>
+    <slot />
+  </InnerContainer>
+</OuterContainer>

@@ -1,0 +1,28 @@
+---
+import Image from './Image.astro'
+import { photos } from '../data/photos'
+
+const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+---
+
+<div class="mt-16 sm:mt-20">
+  <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+    {
+      photos.map((photo, photoIndex) => (
+        <div
+          class:list={[
+            'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+            rotations[photoIndex % rotations.length],
+          ]}
+        >
+          <Image
+            src={photo}
+            alt=""
+            sizes="(min-width: 640px) 18rem, 11rem"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>

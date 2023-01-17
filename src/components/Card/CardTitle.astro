@@ -1,0 +1,25 @@
+---
+import CardLink from './CardLink.astro'
+
+type CardTitleComponent = 'h1' | 'h2' | 'h3' | 'h4'
+
+interface Props {
+  as?: CardTitleComponent
+  href?: string
+}
+const { href, as: Component = 'h2' } = Astro.props
+---
+
+<Component
+  class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
+>
+  {
+    href ? (
+      <CardLink href={href}>
+        <slot />
+      </CardLink>
+    ) : (
+      <slot />
+    )
+  }
+</Component>

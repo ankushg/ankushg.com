@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'a'> {
+  href?: string | URL
+  class?: string
+}
+
+const {
+  href,
+  class: className,
+  target: origTarget,
+  rel: origRel,
+  ...attrs
+} = Astro.props
+
+const target = origTarget
+  ? origTarget
+  : href?.toString().startsWith('/')
+  ? '_self'
+  : '_blank'
+
+const rel = origRel
+  ? origRel
+  : target === '_blank'
+  ? 'noopener noreferrer'
+  : undefined
+---
+
+<a href={href} class={className} target={target} rel={rel} {...attrs}>
+  <slot />
+</a>

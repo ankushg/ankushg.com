@@ -1,0 +1,74 @@
+---
+import Container from '../components/Container/Container.astro'
+import { AUTHOR } from '../consts'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import SocialLinkWithText from '../components/SocialLinks/SocialLinkWithText.astro'
+import Image from '../components/Image.astro'
+import { socialLinkItems } from '../data/SocialLinks'
+import portraitImage from '../images/portrait.jpg'
+const title = `About - ${AUTHOR}`
+const description =
+  "I'm Spencer Sharp. I live in New York City, where I design the future."
+---
+
+<BaseLayout metaTitle={title} metaDescription={description}>
+  <Container class="mt-16 sm:mt-32">
+    <div
+      class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
+    >
+      <div class="lg:pl-20">
+        <div class="max-w-xs px-2.5 lg:max-w-none">
+          <Image
+            src={portraitImage}
+            alt=""
+            sizes="(min-width: 1024px) 32rem, 20rem"
+            class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+          />
+        </div>
+      </div>
+      <div class="lg:order-first lg:row-span-2">
+        <h1
+          class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+        >
+          I’m Ankush. I live in the SF Bay Area, where I design the future.
+        </h1>
+        <div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <p>
+            I’m currently a Staff Software Engineer at <a
+              href="https://quizlet.com/mission">Quizlet</a
+            >.
+          </p>
+          <p>
+            I primarily focus on delivering awesome learning experiences with
+            Android and Kotlin Multiplatform – both for our users and my fellow
+            engineers.
+          </p>
+          <p>
+            I’ve been involved with <a
+              href="https://play.google.com/store/apps/details?id=com.quizlet.quizletandroid"
+              >Quizlet’s Android app</a
+            > since I wrote its first lines of code in 2013. As the app has grown
+            over the years (now with over 10 million installs and a 4.6+ star rating),
+            I’ve worked to scale our product, our team, and our engineering practices.
+          </p>
+          <p>
+            I went to MIT, where I organized HackMIT, did a lot of distributed
+            systems research, and earned my:
+          </p>
+          <ol>
+            <li>Bachelor of Science in Computer Science,</li>
+            <li>
+              and my Master of Engineering in Computer Science and Engineering,
+              with a particular concentration in Distributed Systems
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="lg:pl-20">
+        <ul>
+          {socialLinkItems.map((item) => <SocialLinkWithText {...item} />)}
+        </ul>
+      </div>
+    </div>
+  </Container>
+</BaseLayout>
