@@ -15,8 +15,10 @@
   - [x] Container
   - [x] Footer
   - [x] Header
-    - [ ] Mobile Nav is React still. Also not working. Maybe this <https://github.com/surjithctly/astro-navbar#readme> or DaisyUI?
     - [ ] scroll animations
+  - [x] Mobile Nav 
+    - [ ] is still react (tsx) and uses astro island for interactivity
+      - [ ] Maybe this <https://github.com/surjithctly/astro-navbar#readme> or DaisyUI?
   - [x] Prose
   - [x] Section
   - [x] SimpleLayout => in `layouts/SimpleLayout`

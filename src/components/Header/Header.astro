@@ -72,7 +72,10 @@ const isHomePage = isCurrentPath(Astro.request.url, '/')
           }
         </div>
         <div class="flex flex-1 justify-end md:justify-center">
-          <MobileNavigation className="pointer-events-auto md:hidden" />
+          <MobileNavigation
+            client:load
+            className="pointer-events-auto md:hidden"
+          />
           <DesktopNavigation class="pointer-events-auto hidden md:block" />
         </div>
         <div class="flex justify-end md:flex-1">
