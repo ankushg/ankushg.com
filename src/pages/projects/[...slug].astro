@@ -1,7 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
-import ArticleLayout from '../../layouts/ArticleLayout.astro'
-import { ProjectsNavItem } from '../../data/navigation'
+import ArticleLayout from '@layouts/CustomArticleLayout.astro'
+import { ProjectsNavItem } from '@data/navigation'
 
 export async function getStaticPaths() {
   const project = await getCollection('projects')

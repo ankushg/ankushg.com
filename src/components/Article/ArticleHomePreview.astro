@@ -1,13 +1,13 @@
 ---
-import Card from '../Card/Card.astro'
-import CardTitle from '../Card/CardTitle.astro'
-import CardEyebrow from '../Card/CardEyebrow.astro'
-import CardDescription from '../Card/CardDescription.astro'
-import CardCta from '../Card/CardCta.astro'
-import type { ArticleContentItem } from '../../content/config'
-import { formatDate } from '../../utils/formatDate'
-import { hrefTo } from '../../data/navigation'
-import Markdown from '../Markdown.astro'
+import { formatDate } from '@utils/formatDate'
+import { hrefTo } from '@data/navigation'
+import Card from '@components/Card/Card.astro'
+import CardCta from '@components/Card/CardCta.astro'
+import CardDescription from '@components/Card/CardDescription.astro'
+import CardEyebrow from '@components/Card/CardEyebrow.astro'
+import CardTitle from '@components/Card/CardTitle.astro'
+import Markdown from '@components/Markdown.astro'
+import type { ArticleContentItem } from '@content/config'
 
 interface Props {
   article: ArticleContentItem

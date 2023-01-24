@@ -1,8 +1,8 @@
+import { getAllItems } from '@content/config'
+import { hrefTo } from '@data/navigation'
+import { renderMarkdownToHtml } from '@utils/renderMarkdown'
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts'
 import rss from '@astrojs/rss'
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts'
-import { getAllItems } from '../content/config'
-import { hrefTo } from '../data/navigation'
-import { renderMarkdownToHtml } from '../utils/renderMarkdown'
 
 const content = await getAllItems()
 

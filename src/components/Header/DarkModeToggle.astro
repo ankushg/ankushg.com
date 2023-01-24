@@ -1,7 +1,7 @@
 ---
 import SunIcon from 'astro-heroicons/solid/Sun.astro'
 import MoonIcon from 'astro-heroicons/solid/Moon.astro'
-import { toggleDarkModeButtonClass } from '../../consts'
+import { toggleDarkModeButtonClass } from '@/consts'
 ---
 
 <button
@@ -21,8 +21,8 @@ import { toggleDarkModeButtonClass } from '../../consts'
 </button>
 
 <script>
-  import { toggleDarkModeButtonClass } from '../../consts'
-  import { toggleDarkMode } from '../../scripts/toggleDarkMode'
+  import { toggleDarkModeButtonClass } from '@/consts'
+  import { toggleDarkMode } from '@scripts/toggleDarkMode'
 
   const buttons = document.querySelectorAll(
     `button.${toggleDarkModeButtonClass}`

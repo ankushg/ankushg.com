@@ -1,11 +1,11 @@
 ---
-import Container from '../Container/Container.astro'
+import Container from '@components/Container/Container.astro'
 import Avatar from './Avatar/Avatar.astro'
 import AvatarContainer from './Avatar/AvatarContainer.astro'
 import DesktopNavigation from './DeskopNavigation/DesktopNavigation.astro'
 import ModeToggle from './DarkModeToggle.astro'
 import MobileNavigation from './MobileNavigation/MobileNavigation'
-import { isCurrentPath } from '../../utils/isCurrentPath'
+import { isCurrentPath } from '@utils/isCurrentPath'
 import { headerAvatarReferenceClass, headerReferenceClass } from '../../consts'
 const isHomePage = isCurrentPath(Astro.request.url, '/')
 ---

@@ -1,7 +1,7 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
+import BaseHead from '@components/BaseHead.astro'
 import HeaderFooterLayout from './HeaderFooterLayout.astro'
-import type { PageMetadata } from '../mytypes'
+import type { PageMetadata } from '@/mytypes'
 
 type Props = Partial<PageMetadata>
 ---
@@ -17,7 +17,7 @@ type Props = Partial<PageMetadata>
       import {
         applyDarkModeSettings,
         listenForDarkModeChanges,
-      } from '../scripts/toggleDarkMode'
+      } from '@/scripts/toggleDarkMode'
 
       applyDarkModeSettings()
       listenForDarkModeChanges()

@@ -1,13 +1,13 @@
 ---
-import Card from './Card/Card.astro'
+import Card from '@components/Card/Card.astro'
 import LinkIcon from 'astro-heroicons/solid/Link.astro'
-import CardDescription from './Card/CardDescription.astro'
-import CardLink from './Card/CardLink.astro'
-import Image from './Image.astro'
-import type { ProjectContentItem } from '../content/config'
-import { hrefTo } from '../data/navigation'
-import Markdown from './Markdown.astro'
-import CardEyebrow from './Card/CardEyebrow.astro'
+import CardDescription from '@components/Card/CardDescription.astro'
+import CardLink from '@components/Card/CardLink.astro'
+import Image from '@components/Image.astro'
+import type { ProjectContentItem } from '@content/config'
+import { hrefTo } from '@data/navigation'
+import Markdown from '@components/Markdown.astro'
+import CardEyebrow from '@components/Card/CardEyebrow.astro'
 
 interface Props {
   project: ProjectContentItem
@@ -17,7 +17,7 @@ const { project } = Astro.props
 
 const image = project.data.header?.teaser ?? undefined
 const description = project.data.description ?? project.data.excerpt
-const accolades = project.data.accolades
+const accolades = project.data.accolades ?? []
 ---
 
 <Card as="li">
@@ -31,7 +31,13 @@ const accolades = project.data.accolades
   <h2 class="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
     <CardLink href={hrefTo(project)}>{project.data.title}</CardLink>
   </h2>
-  {accolades?.map((accolade) => <CardEyebrow decorate>{accolade}</CardEyebrow>)}
+  {
+    accolades?.map((accolade) => (
+      <CardEyebrow as="span" pin={false} decorate>
+        <Markdown markdown={accolade} />
+      </CardEyebrow>
+    ))
+  }
   {
     description && (
       <CardDescription>

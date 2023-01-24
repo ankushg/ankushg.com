@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import type { DateLike } from '../mytypes'
+import type { DateLike } from '@/mytypes'
 
 export function formatDate(date?: DateLike): string | undefined {
   if (!date) return date

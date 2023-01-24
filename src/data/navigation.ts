@@ -1,4 +1,6 @@
-import type { ContentItem } from '../content/config'
+import { SITE_URL } from '@/consts'
+import type { ContentItem } from '@content/config'
+import type { SocialLinkContent } from '@data/SocialLinks'
 
 export type NavItem = {
   name: string

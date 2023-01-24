@@ -1,9 +1,9 @@
 ---
-import { AUTHOR } from '../../consts'
-import SimpleLayout from '../../layouts/SimpleLayout.astro'
-import SpeakingSection from '../../components/Speaking/SpeakingSection.astro'
-import Appearance from '../../components/Speaking/SpeakingAppearance.astro'
-import { getAllAppearances } from '../../content/config'
+import { AUTHOR } from '@/consts'
+import SimpleLayout from '@layouts/SimpleLayout.astro'
+import SpeakingSection from '@components/Speaking/SpeakingSection.astro'
+import Appearance from '@components/Speaking/SpeakingAppearance.astro'
+import { getAllAppearances } from '@content/config'
 
 const appearances = await getAllAppearances()
 

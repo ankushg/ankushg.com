@@ -1,9 +1,11 @@
 ---
 import BriefcaseIcon from 'astro-heroicons/solid/Briefcase.astro'
-import ArrowDownIcon from 'astro-heroicons/solid/ArrowDown.astro'
-import { resume } from '../../data/resume'
+import { resume } from '@data/resume'
 import ResumeItem from './ResumeItem.astro'
-import Button from '../Button.astro'
+import Button from '@components/Button.astro'
+import { hrefTo } from '@data/navigation'
+import { LinkedInSocialLink } from '@data/SocialLinks'
+import { Icon } from 'astro-iconify'
 ---
 
 <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">

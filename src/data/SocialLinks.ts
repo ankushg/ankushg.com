@@ -1,4 +1,4 @@
-import type { ImageRef } from '../mytypes'
+import type { ImageRef } from '@/mytypes'
 
 export interface SocialLinkContent {
   href: string

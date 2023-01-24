@@ -4,8 +4,10 @@ import {
   SITE_DESCRIPTION,
   AUTHOR_TWITTER,
   PLACEHOLDER_SOCIAL_IMAGE,
-} from '../consts'
-import type { PageMetadata } from '../mytypes'
+} from '@/consts'
+import { hrefTo } from '@data/navigation'
+import type { PageMetadata } from '@/mytypes'
+import { RssSocialLink } from '@data/SocialLinks'
 
 type Props = Partial<PageMetadata>
 

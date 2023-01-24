@@ -1,8 +1,8 @@
 ---
-import { AUTHOR } from '../../consts'
-import SimpleLayout from '../../layouts/SimpleLayout.astro'
-import ProjectCard from '../../components/ProjectCard.astro'
-import { getAllProjects } from '../../content/config'
+import { AUTHOR } from '@/consts'
+import SimpleLayout from '@layouts/SimpleLayout.astro'
+import ProjectCard from '@components/Project/ProjectCard.astro'
+import { getAllProjects } from '@content/config'
 
 const projects = await getAllProjects()
 

@@ -1,4 +1,4 @@
-import type { ImageRef } from '../mytypes'
+import type { ImageRef } from '@/mytypes'
 
 export type ResumeTime = string | { label: string; dateTime: string }
 

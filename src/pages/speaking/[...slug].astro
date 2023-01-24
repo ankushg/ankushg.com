@@ -1,7 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
-import ArticleLayout from '../../layouts/ArticleLayout.astro'
-import { SpeakingNavItem } from '../../data/navigation'
+import ArticleLayout from '@layouts/CustomArticleLayout.astro'
+import { SpeakingNavItem } from '@data/navigation'
 
 export async function getStaticPaths() {
   const appearances = await getCollection('speaking')

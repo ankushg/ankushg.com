@@ -10,7 +10,19 @@
     "types": [
       "astro/client"
       // "@astrojs/image/client"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@content/*": ["src/content/*"],
+      "@data/*": ["src/data/*"],
+      "@images/*": ["src/images/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@pages/*": ["src/pages/*"],
+      "@scripts/*": ["src/scripts/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "paths": {
     "@/*": ["src/*"],

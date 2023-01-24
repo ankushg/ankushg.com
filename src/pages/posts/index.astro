@@ -1,8 +1,8 @@
 ---
-import SimpleLayout from '../../layouts/SimpleLayout.astro'
-import ArticleListItem from '../../components/Article/ArticleListItem.astro'
-import { AUTHOR } from '../../consts'
-import { getAllArticles } from '../../content/config'
+import SimpleLayout from '@layouts/SimpleLayout.astro'
+import ArticleListItem from '@components/Article/ArticleListItem.astro'
+import { AUTHOR } from '@/consts'
+import { getAllArticles } from '@content/config'
 const articles = await getAllArticles()
 
 const props = {

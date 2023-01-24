@@ -1,4 +1,4 @@
-import type { ImageRef } from '../mytypes'
+import type { ImageRef } from '@/mytypes'
 
 export const photos: ImageRef[] = [
   './src/images/photos/image-1.jpg',

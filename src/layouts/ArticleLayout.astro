@@ -1,11 +1,11 @@
 ---
-import Container from '../components/Container/Container.astro'
-import Prose from '../components/Prose.astro'
+import Container from '@components/Container/Container.astro'
+import Prose from '@components/Prose.astro'
 import ArrowLeftIcon from 'astro-heroicons/solid/ArrowLeft.astro'
-import { formatDate } from '../utils/formatDate'
-import type { ContentItem } from '../content/config'
-import BaseLayout from '../layouts/BaseLayout.astro'
-import type { NavItem } from '../data/navigation'
+import { formatDate } from '@utils/formatDate'
+import type { ContentItem } from '@content/config'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import type { NavItem } from '@data/navigation'
 
 interface Props {
   article: ContentItem

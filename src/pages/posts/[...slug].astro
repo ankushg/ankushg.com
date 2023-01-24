@@ -1,7 +1,7 @@
 ---
-import ArticleLayout from '../../layouts/ArticleLayout.astro'
-import { ArticlesNavItem } from '../../data/navigation'
-import { ArticleContentItem, getAllArticles } from '../../content/config'
+import ArticleLayout from '@layouts/CustomArticleLayout.astro'
+import { ArticlesNavItem } from '@data/navigation'
+import { ArticleContentItem, getAllArticles } from '@content/config'
 
 export async function getStaticPaths() {
   const articles = await getAllArticles()

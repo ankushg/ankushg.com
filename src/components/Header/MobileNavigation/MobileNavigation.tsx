@@ -1,5 +1,5 @@
 import { Popover, Transition } from '@headlessui/react'
-import { navItems } from '../../../data/navigation'
+import { navItems } from '@data/navigation'
 import {
   ChevronDownIcon,
   XMarkIcon as CloseIcon,
