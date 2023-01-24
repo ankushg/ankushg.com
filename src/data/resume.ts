@@ -22,6 +22,7 @@ export function getTimeAndLabel(resumeTime: ResumeTime) {
 }
 export interface ResumeItem {
   company: string
+  href: string
   title?: string
   start: ResumeTime
   end: ResumeTime
@@ -34,6 +35,7 @@ export const resume: ResumeItem[] = [
     title: 'CEO',
     logo: './src/images/logos/airbnb.svg',
     start: '2019',
+    href: '#',
     end: {
       label: 'Present',
       dateTime: new Date().getFullYear().toString(),
@@ -43,6 +45,7 @@ export const resume: ResumeItem[] = [
     company: 'Airbnb',
     title: 'Product Designer',
     logo: './src/images/logos/airbnb.svg',
+    href: '#',
     start: '2014',
     end: '2019',
   },
@@ -50,6 +53,7 @@ export const resume: ResumeItem[] = [
     company: 'Facebook',
     title: 'iOS Software Engineer',
     logo: './src/images/logos/airbnb.svg',
+    href: '#',
     start: '2011',
     end: '2014',
   },
@@ -57,6 +61,7 @@ export const resume: ResumeItem[] = [
     company: 'Starbucks',
     title: 'Shift Supervisor',
     logo: './src/images/logos/airbnb.svg',
+    href: '#',
     start: '2008',
     end: '2011',
   },
