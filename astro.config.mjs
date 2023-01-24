@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
+import AutoImport from 'astro-auto-import'
 
 // https://astro.build/config
 import react from '@astrojs/react'
@@ -18,7 +19,13 @@ export default defineConfig({
   site: 'https://ankushg.com',
   markdown: {},
   integrations: [
-    mdx(),
+    AutoImport({
+      imports: [
+        './src/components/Figure.astro',
+        './src/components/Aside.astro',
+        { 'astro-embed': ['Vimeo', 'YouTube', 'Tweet'] },
+      ],
+    }),
     sitemap(),
     react(),
     tailwind(),
@@ -26,6 +33,7 @@ export default defineConfig({
     //   serviceEntryPoint: "@astrojs/image/sharp",
     //   logLevel: "warn",
     // }),
+    mdx(),
   ],
   experimental: {
     contentCollections: true,
