@@ -9,11 +9,13 @@ interface Props {
   class?: string
   decorate?: boolean
   dateTime?: DateLike
+  pin?: boolean
 }
 const {
   dateTime,
   class: className,
   as: Component = 'p',
+  pin = true,
   decorate = false,
 } = Astro.props
 ---
@@ -22,6 +24,7 @@ const {
   class:list={[
     className,
     'relative z-10 mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
+    pin && 'order-first',
     decorate && 'pl-3.5',
   ]}
   datetime={formatDate(dateTime)}
