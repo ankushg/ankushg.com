@@ -38,7 +38,6 @@ const oldTemplateFrontmatter = z.object({
   feature: z.boolean().optional(),
   header: oldTemplateHeader,
   permalink: z.string().optional(),
-  slug: z.string().optional(),
   accolades: z.string().array().optional(),
 })
 
@@ -46,24 +45,9 @@ const baseFrontMatter = oldTemplateFrontmatter.extend({
   cta: z.string().default('Read more'),
 })
 
-function convertPermalinkToSlug(
-  permalink: string | undefined,
-  collectionName: string
-) {
-  const regex = new RegExp(`/?${collectionName}/?`)
-  return permalink?.replace(regex, '')
-}
-
 const articleFrontmatterSchema = baseFrontMatter
 
 const posts = defineCollection({
-  slug: ({ defaultSlug, collection, data }) => {
-    return (
-      convertPermalinkToSlug(data.permalink, collection) ||
-      data.slug ||
-      defaultSlug
-    )
-  },
   schema: articleFrontmatterSchema,
 })
 
@@ -76,13 +60,6 @@ export async function getAllArticles(): Promise<ArticleContentItem[]> {
 
 const projectFrontmatterSchema = baseFrontMatter
 const projects = defineCollection({
-  slug: ({ defaultSlug, collection, data }) => {
-    return (
-      convertPermalinkToSlug(data.permalink, collection) ||
-      data.slug ||
-      defaultSlug
-    )
-  },
   schema: projectFrontmatterSchema,
 })
 export async function getAllProjects(): Promise<ProjectContentItem[]> {
@@ -97,13 +74,6 @@ const speakingFrontmatterSchema = baseFrontMatter.extend({
   event: z.string(),
 })
 const speaking = defineCollection({
-  slug: ({ defaultSlug, collection, data }) => {
-    return (
-      convertPermalinkToSlug(data.permalink, collection) ||
-      data.slug ||
-      defaultSlug
-    )
-  },
   // Type-check frontmatter using a schema
   schema: speakingFrontmatterSchema,
 })
