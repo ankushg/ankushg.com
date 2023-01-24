@@ -1,0 +1,65 @@
+---
+import Icon from 'astro-iconify'
+
+type AsideType = 'info' | 'caution' | 'error' | 'success'
+
+export interface Props {
+  type?: AsideType
+}
+
+const { type = 'info' } = Astro.props as Props
+
+interface AsidePayload {
+  iconName: string
+  iconClass: string
+  containerClass: string
+}
+
+const asides: Record<AsideType, AsidePayload> = {
+  info: {
+    iconName: 'heroicons:information-circle',
+    iconClass:
+      'fill-sky-500 stroke-white dark:fill-sky-200/20 dark:stroke-sky-200',
+    containerClass:
+      ' border-sky-500/20 bg-sky-50/50 text-sky-900 dark:border-sky-500/30 dark:bg-sky-500/5 dark:text-sky-200 dark:[--tw-prose-links:theme(colors.white)] dark:[--tw-prose-links-hover:theme(colors.sky.300)]',
+  },
+  caution: {
+    iconName: 'heroicons:exclamation-triangle',
+    iconClass:
+      'fill-amber-500 stroke-white dark:fill-amber-200/20 dark:stroke-amber-200',
+    containerClass:
+      ' border-amber-500/20 bg-amber-50/50 text-amber-900 dark:border-amber-500/30 dark:bg-amber-500/5 dark:text-amber-200 dark:[--tw-prose-links:theme(colors.white)] dark:[--tw-prose-links-hover:theme(colors.amber.300)]',
+  },
+  error: {
+    iconName: 'heroicons:x-circle',
+    iconClass:
+      'fill-rose-500 stroke-white dark:fill-rose-200/20 dark:stroke-rose-200',
+    containerClass:
+      ' border-rose-500/20 bg-rose-50/50 text-rose-900 dark:border-rose-500/30 dark:bg-rose-500/5 dark:text-rose-200 dark:[--tw-prose-links:theme(colors.white)] dark:[--tw-prose-links-hover:theme(colors.rose.300)]',
+  },
+  success: {
+    iconName: 'heroicons:check-circle',
+    iconClass:
+      'fill-emerald-500 stroke-white dark:fill-emerald-200/20 dark:stroke-emerald-200',
+    containerClass:
+      ' border-emerald-500/20 bg-emerald-50/50 text-emerald-900 dark:border-emerald-500/30 dark:bg-emerald-500/5 dark:text-emerald-200 dark:[--tw-prose-links:theme(colors.white)] dark:[--tw-prose-links-hover:theme(colors.emerald.300)]',
+  },
+}
+
+const aside = asides[type]
+---
+
+<aside
+  class:list={[
+    aside.containerClass,
+    'my-6 flex gap-2.5 rounded-2xl border p-4 leading-6',
+  ]}
+>
+  <Icon
+    name={aside.iconName}
+    class:list={[aside.iconClass, 'mt-1 h-5 w-5 flex-none']}
+  />
+  <div class="[&>:first-child]:mt-0 [&>:last-child]:mb-0">
+    <slot />
+  </div>
+</aside>

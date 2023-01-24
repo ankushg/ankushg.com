@@ -1,0 +1,25 @@
+---
+import Image from '@components/Image.astro'
+import type { HTMLAttributes } from 'astro/types'
+import Markdown from '@components/Markdown.astro'
+
+interface Props extends HTMLAttributes<'figure'> {
+  imageSrc: string
+  alt: string
+  caption?: string
+}
+
+const { imageSrc, alt, caption } = Astro.props
+---
+
+<figure>
+  <Image alt={alt} src={imageSrc} />
+  {
+    caption && (
+      <figcaption class="prose dark:prose-invert">
+        <Markdown markdown={caption} />
+      </figcaption>
+    )
+  }
+  <slot />
+</figure>
