@@ -16,9 +16,14 @@ import { Icon } from 'astro-iconify'
   <ol class="mt-6 space-y-4">
     {resume.map((role) => <ResumeItem {...role} />)}
   </ol>
-  <Button href="#" variant="secondary" class="group mt-6 w-full">
-    Download CV
-    <ArrowDownIcon
+  <Button
+    href={hrefTo(LinkedInSocialLink)}
+    variant="secondary"
+    class="group mt-6 w-full"
+  >
+    {LinkedInSocialLink.text}
+    <Icon
+      name={LinkedInSocialLink.iconName}
       class="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50"
     />
   </Button>
