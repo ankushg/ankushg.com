@@ -17,10 +17,11 @@ header:
   teaser: /assets/images/tls-1.2-bugdroid.png
   og_image: /assets/images/tls-1.2-bugdroid.png
 date: 2018-08-03
-permalink: /posts/tls-1.2-on-android
+slug: tls-1.2-on-android
 ---
+import bugdroidImage from "@/images/posts/tls-1.2-bugdroid.png"
 
-{% include figure image_path="/assets/images/tls-1.2-bugdroid.png" caption="The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License" %}
+<Figure imageSrc={bugdroidImage} caption="The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License" />
 
 [As described by the PCI Security Standards Council](https://blog.pcisecuritystandards.org/are-you-ready-for-30-june-2018-sayin-goodbye-to-ssl-early-tls), early versions of the TLS security protocol are susceptible to widespread exploits that could expose potentially sensitive data. On June 30th, [we upgraded Quizlet’s security to require TLS 1.2 or higher](https://quizlet.com/blog/quizlet-is-upgrading-our-https-security) as part of our continued following of best-practice data security recommendations.
 
@@ -46,15 +47,28 @@ Luckily, Google Play Services [provides a way to do this](https://developer.andr
 
 We do this as follows:
 
-{% gist 034c151ac6ed4ed5c89d3065e2899149 InstallTls12.kt %}
+{/* <Gist id="034c151ac6ed4ed5c89d3065e2899149" filename="InstallTls12.kt" /> */}
+```kotlin
+fun Context.installTls12() {
+  try {
+      ProviderInstaller.installIfNeeded(this)
+  } catch (e: GooglePlayServicesRepairableException) {
+      // Prompt the user to install/update/enable Google Play services.
+      GoogleApiAvailability.getInstance()
+          .showErrorNotification(this, e.connectionStatusCode)
+  } catch (e: GooglePlayServicesNotAvailableException) {
+      // Indicates a non-recoverable error: let the user know.
+  }
+}
+```
 
 For devices without Google Play services, we unfortunately don’t have an alternative way to patch the device’s security `Provider` to support TLS 1.2. For these users, we display a message so they know the app may not work properly for them.
 
 In the Quizlet Android app, we call this in a background thread if our first API call fails with an `SSLHandshakeException`. Calling `ProviderInstaller.installIfNeeded` only _after_ an `SSLException` allows us to support users with TLS 1.2 already installed with minimal disruption (i.e., if they have an old version of Google Play Services, or don’t have it installed at all). In your apps, it might make sense to handle this logic in a similar manner.
 
+<Aside type="info">
 ### Calling `ProviderInstaller.installIfNeeded` only _after_ an `SSLException` allows us to support users with TLS 1.2 already installed with minimal disruption
-
-{: .notice--info}
+</Aside>
 
 Alternatives to this approach include Google’s official suggestions: either blocking network transactions by calling `installIfNeeded` upon creation of all network-specific threads (it’s a no-op if the security `Provider` is already up-to-date, so the performance impact should be minimal), or [using the asynchronous variant](https://developer.android.com/training/articles/security-gms-provider#example_async) to start a call from the main thread.
 
@@ -66,9 +80,9 @@ Our initial understanding of [OkHttp’s HTTPS strategy](https://github.com/squa
 
 OkHttp’s default behavior is to use an `SSLSocketFactory` to create `SSLSocket`s with default parameters, and select from protocols that are _enabled_ for a given `SSLSocket`. Here’s the kicker: The latest protocols **_installed_** on a device are not necessarily **_enabled_** on its default `SSLSocket`s!
 
+<Aside type="caution">
 ### The latest protocols **_installed_** on a device are not necessarily **_enabled_** on its default `SSLSocket`s!
-
-{: .notice--warning}
+</Aside>
 
 The [docs for `SSLSocket` on Android](https://developer.android.com/reference/javax/net/ssl/SSLSocket#default-configuration-for-different-android-versions) state that TLS 1.2 is only enabled as a default client protocol starting in Android 4.3. To make things more confusing, developers have found that certain Samsung devices on Android 4.4 don’t have it enabled either.
 
@@ -88,13 +102,34 @@ By default, the Glide OkHttp3 integration uses a vanilla `OkHttpClient` to load 
 
 Lucky for us, this fix wasn’t too complicated for Glide. We [set up our `AppGlideModule`](https://bumptech.github.io/glide/doc/configuration.html#appglidemodule) to use our `Tls12SocketFactory` for its `OkHttpClient` as well:
 
-{% gist 88140bc973a1348b789064c926f0ad10 QuizletGlideModule.kt %}
+{/* <Gist id="88140bc973a1348b789064c926f0ad10" filename="QuizletGlideModule.kt" /> */}
+
+```kotlin
+@GlideModule
+class QuizletGlideModule : AppGlideModule() {
+  override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
+    super.registerComponents(context, glide, registry)
+
+    val okHttpClient = OkHttpClient.Builder()
+      .enableTls12()
+      .build()
+      
+    registry.replace(
+      GlideUrl::class.java,
+      InputStream::class.java,
+      OkHttpUrlLoader.Factory(okHttpClient)
+    )
+  }
+    
+  override fun isManifestParsingEnabled() = false
+}
+```
 
 If you use Glide or any other libraries that manage their own network calls, you should make sure that their `SSLSocket`s are also configured to enable TLS 1.2.
 
-### If you use Glide or any other libraries that manage their own network calls, you should make sure that their `SSLSocket`s are also configured to enable TLS 1.2.
-
-{: .notice--info}
+<Aside type="info">
+  ### If you use Glide or any other libraries that manage their own network calls, you should make sure that their `SSLSocket`s are also configured to enable TLS 1.2.
+</Aside>
 
 Whew. **Now** we’re done!
 

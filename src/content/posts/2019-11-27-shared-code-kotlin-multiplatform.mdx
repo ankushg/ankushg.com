@@ -17,8 +17,17 @@ header:
   teaser: /assets/images/quizlet-shared-kotlin/q+k.png
   image_description: 'Quizlet + Kotlin = ❤️'
 date: 2019-11-27
-permalink: /posts/shared-code-kotlin-multiplatform
+slug: shared-code-kotlin-multiplatform
 ---
+
+import stage1 from "@/images/posts/quizlet-shared-kotlin/stage1.png"
+import stage2 from "@/images/posts/quizlet-shared-kotlin/stage2.png"
+import stage3 from "@/images/posts/quizlet-shared-kotlin/stage3.png"
+import stage4 from "@/images/posts/quizlet-shared-kotlin/stage4.png"
+import stage5 from "@/images/posts/quizlet-shared-kotlin/stage5.png"
+import stage6 from "@/images/posts/quizlet-shared-kotlin/stage6.png"
+import kmppModel from "@/images/posts/quizlet-shared-kotlin/kmpp-model.png"
+
 
 For readers who don’t know about us already, [Quizlet](https://quizlet.com/careers)’s mission is to help our users practice and master whatever they’re trying to learn. We primarily do this by building tools for learners to create, study, and share content, with more than 50 million students and teachers using our product each month.
 
@@ -58,11 +67,11 @@ We began writing extremely specialized, domain-specific logic to help our users 
 
 In visual terms, our website went from this:
 
-{% include figure image_path="/assets/images/quizlet-shared-kotlin/stage1.png" caption="Simple Web Client + API" %}
+<Figure imageSrc={stage1} caption="Simple Web Client + API" />
 
 to this:
 
-{% include figure image_path="/assets/images/quizlet-shared-kotlin/stage2.png" caption="Complex Web Client + API" %}
+<Figure imageSrc={stage2} caption="Complex Web Client + API" />
 
 Each of these pieces of code are tied to Quizlet’s mission to make education better and more accessible. Each of these components **also** requires a deep, domain-specific understanding of our specific product and market, well beyond what it takes to write a generic web application.
 
@@ -74,7 +83,7 @@ While it’s easy to infer that continued investments in the Secret Sauce have o
 
 The web team had years to implement the fundamentals of the website before finding the need to dive deep into the Secret Sauce. But our fledgling mobile teams were still trying to reach parity on even the most basic features.
 
-{% include figure image_path="/assets/images/quizlet-shared-kotlin/stage3.png" caption="Complex Web Client… Brand-New Mobile Clients" %}
+<Figure imageSrc={stage3} caption="Complex Web Client… Brand-New Mobile Clients" />
 
 It’s hard enough to write niche, complicated, domain-specific business logic and get it right once. Writing it precisely the same on **three platforms**, where two of them were starting from scratch, and also had to deal with persistence and networking concerns?
 
@@ -92,7 +101,7 @@ The most literal interpretation of this would mean that we simply wouldn’t sup
 
 The more likely situation would have been that we moved to an API-side implementation of our secret sauce instead of performing those operations on-device.
 
-{% include figure image_path="/assets/images/quizlet-shared-kotlin/stage4.png" caption="Simple Web and Mobile Clients with Secret Sauce behind the API" %}
+<Figure imageSrc={stage4} caption="Simple Web and Mobile Clients with Secret Sauce behind the API" />
 
 For many businesses, requiring internet connectivity for core product features might be a very reasonable requirement! Quizlet however has a particularly strong affinity for mobile users with limited Internet access.
 
@@ -216,7 +225,7 @@ With a bit of initial setup, we were able to clean up the existing web code alon
 
 We could then bundle these files into our mobile apps and run them. The end-result was to read each library file into a String in-memory and pass it into a JavaScript runtime.
 
-{% include figure image_path="/assets/images/quizlet-shared-kotlin/stage5.png" caption="JS Artifacts in Mobile Clients" %}
+<Figure imageSrc={stage5} caption="JS Artifacts in Mobile Clients" />
 
 In order to interact with this code, we would marshal "real" iOS or Android classes into JS-friendly versions, and build a string that ran a given function from the JS runtime. We would then marshal the output strings back to "real" classes.
 
@@ -290,7 +299,7 @@ It’s only been getting more popular ever since!
 
 By building out separate compiler backends for different targets, Kotlin Multiplatform compiles platform-agnostic Kotlin code (aka "Common" code) into many different artifacts.
 
-{% include figure image_path="/assets/images/quizlet-shared-kotlin/kmpp-model.png" caption="Kotlin Multiplatform’s Compiler Framework" %}
+<Figure imageSrc={kmppModel} caption="Kotlin Multiplatform’s Compiler Framework" />
 
 One of the core features of Kotlin Multiplatform is the ability to write [platform-specific declarations](https://kotlinlang.org/docs/reference/platform-specific-declarations.html). This allows Kotlin Common code to define a class or function as expected, and then continue to use it within Common code.
 
@@ -333,7 +342,7 @@ Namely:
 
 By generating actual Objective-C Frameworks, JavaScript files, and Java bytecode, Kotlin Multiplatform promises the ability to write code in Kotlin and have it **run as a first-class citizen on each platform**.
 
-{% include figure image_path="/assets/images/quizlet-shared-kotlin/stage6.png" caption="Kotlin Multiplatform’s Promised Interaction" %}
+<Figure imageSrc={stage6} caption="Kotlin Multiplatform’s Promised Interaction" />
 
 This approach eliminates the most problematic areas of our Shared JavaScript approach: the bridge layer and external runtime requirement. While other technologies (such as shared C++, Rust, or Go) might have foregone the external runtime requirement, the they still rely on bridging technologies.
 

@@ -21,24 +21,28 @@ header:
       url: 'https://github.com/ankushg/MultiplatformParcelize'
       icon: 'fe:github'
 date: 2019-10-20
-permalink: /posts/multiplatform-parcelize
+slug: multiplatform-parcelize
 ---
 
-Jetbrains has deprecated the Kotlin Android Extensions plugin and separated `@Parcelize` into a new plugin which is maintained by Google. [Read this article to see how to migrate to the new plugin](https://proandroiddev.com/migrating-the-deprecated-kotlin-android-extensions-compiler-plugin-to-viewbinding-d234c691dec7#e1a5): it's quite easy!
-{: .notice--warning}
+import parcelsImage from "@/images/posts/parcels.jpg"
 
+<Aside type="caution">
+Jetbrains has deprecated the Kotlin Android Extensions plugin and separated `@Parcelize` into a new plugin which is maintained by Google. [Read this article to see how to migrate to the new plugin](https://proandroiddev.com/migrating-the-deprecated-kotlin-android-extensions-compiler-plugin-to-viewbinding-d234c691dec7#e1a5): it's quite easy!
+</Aside>
+
+<Aside type="info">
 Corresponding code for this blog post [is available on GitHub.](https://github.com/ankushg/MultiplatformParcelize)
-{: .notice--info}
+</Aside>
 
 # Background on `Parcel`s
 
-The Android OS uses [`Parcel`s ](https://developer.android.com/reference/android/os/Parcel)as a high-performance method to communicate data. The Android-only `Parcelable` interface is used to denote classes that can easily be serialized to/from a `Parcel`.
+The Android OS uses [`Parcel`s](https://developer.android.com/reference/android/os/Parcel)as a high-performance method to communicate data. The Android-only `Parcelable` interface is used to denote classes that can easily be serialized to/from a `Parcel`.
 
 They're most frequently used with `Bundle` objects to communicate across activities and intents, and to store state across configuration changes.
 
 As a result, most Android developers should be familiar with the concept of `Parcelable` classes.
 
-{% include figure image_path="/assets/images/parcels.jpg" caption="Photo by [Joanna Kosinska](https://unsplash.com/photos/B6yDtYs2IgY)" %}
+<Figure imageSrc={parcelsImage} caption="Photo by [Joanna Kosinska](https://unsplash.com/photos/B6yDtYs2IgY)"/>
 
 # Using the `@Parcelize` Android Extensions Plugin
 
@@ -148,7 +152,7 @@ But what do we do if we use a Kotlin Multiplatform library, and want to store so
 
 We _could_ manyally declare external `Parceler`s for every class. We'd write them by hand, and then sprinkle `@TypeParceler` or `@WriteWith` all over our Android codebase.
 
-Or, we can take advantage of Kotlin Multiplatform's[ powerful platform-specific declarations](https://kotlinlang.org/docs/reference/platform-specific-declarations.html) to make things work for us!
+Or, we can take advantage of Kotlin Multiplatform's[powerful platform-specific declarations](https://kotlinlang.org/docs/reference/platform-specific-declarations.html) to make things work for us!
 
 ## Declaring `expect` Definitions
 
@@ -192,14 +196,15 @@ Now that we've declared our `expect`ed classes, we have to `actual`ly define the
 
 ### Building a Real Android Library
 
+<Aside type="caution">
 Most default Kotlin Multiplatform templates write code for Android using the `jvm` target. In many cases, this is fine. However, in order to use the `@Parcelize` plugin, we will need to create an actual Android Library using the `com.android.library` Gradle plugin.
-{: .notice--warning}
+</Aside>
 
 [Take a peek at this commit on Github to see the full details](https://github.com/ankushg/MultiplatformParcelize/commit/b05d5b8249dd9761f0d55da9fe1dfb787b689cd4), but below are some of the changes you may need to make:
 
 Adding the `com.android.library` and `kotlin-android-extensions` plugins:
 
-```gradle
+```groovy
 plugins {
   id 'com.android.library'
   id 'org.jetbrains.kotlin.multiplatform'
@@ -209,7 +214,7 @@ plugins {
 
 Adding an explicit `android()` target platform:
 
-```gradle
+```groovy
 kotlin {
   jvm()
   android()
@@ -224,7 +229,7 @@ kotlin {
 
 Adding an `android { }` block where we point to our sourceSets to the code for the `android()` target platform and enable the `@Parcelize` plugin:
 
-```gradle
+```groovy
 android {
   compileSdkVersion 28
 
