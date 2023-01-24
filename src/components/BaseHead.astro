@@ -1,6 +1,5 @@
 ---
 import {
-  SITE_URL,
   SITE_DESCRIPTION,
   AUTHOR_TWITTER,
   PLACEHOLDER_SOCIAL_IMAGE,
@@ -33,7 +32,7 @@ const {
 <link
   rel="alternate"
   type="application/rss+xml"
-  href={`${SITE_URL}/feed.xml`}
+  href={hrefTo(RssSocialLink, true)}
 />
 
 <!-- Open Graph / Facebook -->
