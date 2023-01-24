@@ -13,10 +13,9 @@ import tailwind from '@astrojs/tailwind'
 // import image from "@astrojs/image";
 
 // https://astro.build/config
-
-// https://astro.build/config
 export default defineConfig({
   site: 'https://ankushg.com',
+  output: 'static',
   markdown: {},
   integrations: [
     AutoImport({
@@ -35,8 +34,5 @@ export default defineConfig({
     // }),
     mdx(),
   ],
-  experimental: {
-    contentCollections: true,
-    errorOverlay: true,
-  },
+  experimental: {},
 })
