@@ -6,14 +6,29 @@ export interface SocialLinkContent {
   iconName: ImageRef
 }
 
-export const TwitterSocialLink: SocialLinkContent = {
-  href: '#',
-  text: 'Follow on Twitter',
-  iconName: 'fe:twitter',
+export const LinkedInSocialLink = {
+  href: 'https://linkedin.com/in/ankushmg',
+  text: 'Connect on LinkedIn',
+  iconName: 'cib:linkedin',
 }
+
+export const RssSocialLink = {
+  href: 'https://ankushg.com/feed',
+  text: 'Subscribe via RSS',
+  iconName: 'cib:rss',
+}
+
 export const socialLinkItems: SocialLinkContent[] = [
-  TwitterSocialLink,
-  TwitterSocialLink,
-  TwitterSocialLink,
-  TwitterSocialLink,
+  {
+    href: 'https://twitter.com/ankushg',
+    text: 'Follow on Twitter',
+    iconName: 'cib:twitter',
+  },
+  {
+    href: 'https://github.com/ankushg',
+    text: 'See my code on Github',
+    iconName: 'cib:github',
+  },
+  LinkedInSocialLink,
+  RssSocialLink,
 ]
