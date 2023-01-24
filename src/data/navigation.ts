@@ -2,6 +2,10 @@ import { SITE_URL } from '@/consts'
 import type { ContentItem } from '@content/config'
 import type { SocialLinkContent } from '@data/SocialLinks'
 
+export interface HrefContainer {
+  href: string
+}
+
 export type NavItem = {
   name: string
   href: string
@@ -25,11 +29,22 @@ export const navItems: NavItem[] = [
   UsesNavItem,
 ]
 
-export type NavigationTarget = NavItem | ContentItem
-export function hrefTo(target: NavigationTarget): string {
+export type NavigationTarget = ContentItem | HrefContainer
+export function hrefTo(target: NavigationTarget, absolute = false): string {
+  let href
   if ('href' in target) {
-    return target.href
+    href = target.href
+  } else {
+    href = target.data.link ?? `/${target.collection}/${target.slug}`
   }
 
-  return target.data.link ?? `/${target.collection}/${target.slug}`
+  if (!absolute) {
+    return href
+  }
+
+  if (href.startsWith('http')) {
+    return href
+  } else {
+    return `${SITE_URL}${href}`
+  }
 }
