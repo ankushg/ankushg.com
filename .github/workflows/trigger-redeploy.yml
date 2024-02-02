@@ -4,7 +4,7 @@ jobs:
   redeploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Redeploy
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
