@@ -6,7 +6,7 @@ jobs:
 
     steps:
       - run: mkdir /tmp/artifacts
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5.6
