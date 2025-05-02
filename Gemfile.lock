@@ -107,7 +107,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2023.1205)
     mini_portile2 (2.8.1)
-    minimal-mistakes-jekyll (4.27.0)
+    minimal-mistakes-jekyll (4.27.1)
       jekyll (>= 3.7, < 5.0)
       jekyll-feed (~> 0.1)
       jekyll-gist (~> 1.5)
