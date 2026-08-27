@@ -12,7 +12,8 @@ jobs:
         uses: tj-actions/branch-names@v9.0.0
       - name: Set the preview url
         run: |
-          sanitized_branch=$(echo ${{ steps.branch-name.outputs.current_branch }} | sed -e 's/\//-/g')
+          # Cloudflare Pages truncates branch aliases to 28 characters.
+          sanitized_branch=$(echo ${{ steps.branch-name.outputs.current_branch }} | sed -e 's/\//-/g' | cut -c1-28)
           preview_url=https://$sanitized_branch.ankushg.pages.dev
           echo "Cloudflare preview url is $preview_url"
           echo "preview_url=$preview_url" >> $GITHUB_ENV
@@ -47,5 +48,3 @@ jobs:
           minPerformanceScore: "75"
           minProgressiveWebAppScore: "0"
           minSeoScore: "80"
-
-# Diagnostic retrigger; remove after capturing fresh Lighthouse logs.
