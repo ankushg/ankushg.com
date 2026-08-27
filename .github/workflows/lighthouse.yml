@@ -47,3 +47,5 @@ jobs:
           minPerformanceScore: "75"
           minProgressiveWebAppScore: "0"
           minSeoScore: "80"
+
+# Diagnostic retrigger; remove after capturing fresh Lighthouse logs.
