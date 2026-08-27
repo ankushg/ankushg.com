@@ -7,6 +7,16 @@ jobs:
     steps:
       - run: mkdir /tmp/artifacts
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Detect site changes
+        id: changes
+        run: |
+          if git diff --quiet ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} -- . ':(exclude).github/**'; then
+            echo "site=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "site=true" >> "$GITHUB_OUTPUT"
+          fi
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v9.0.0
@@ -40,6 +50,7 @@ jobs:
           name: Lighthouse reports
           path: /tmp/artifacts
       - name: Handle Lighthouse Check results
+        if: steps.changes.outputs.site == 'true'
         uses: foo-software/lighthouse-check-status-action@master
         with:
           lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
